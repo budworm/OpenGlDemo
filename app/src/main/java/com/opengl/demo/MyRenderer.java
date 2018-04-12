@@ -34,7 +34,11 @@ public class MyRenderer implements GLSurfaceView.Renderer {
     private Context context;
     private int idTexture;
 
-    public MyRenderer(Context context) {
+    public static MyRenderer build(Context context) {
+        return new MyRenderer(context);
+    }
+
+    private MyRenderer(Context context) {
         this.context = context;
     }
 
@@ -76,7 +80,7 @@ public class MyRenderer implements GLSurfaceView.Renderer {
 
         // 清屏
         GLES20.glClear(GLES20.GL_DEPTH_BUFFER_BIT | GLES20.GL_COLOR_BUFFER_BIT);
-        // 使用某套shader程序
+        // 使用shader程序
         GLES20.glUseProgram(program);
 
         // 颜色------------------------------------------↓↓↓↓↓↓↓

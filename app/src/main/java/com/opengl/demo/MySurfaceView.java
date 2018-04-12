@@ -29,6 +29,7 @@ public class MySurfaceView extends GLSurfaceView {
         super.surfaceCreated(holder);
     }
 
+
     /**
      * 初始化
      * author zx
@@ -36,9 +37,11 @@ public class MySurfaceView extends GLSurfaceView {
      * since 2018/4/2  .
      */
     private void init(Context context) {
+        // open gl 编译版本
         setEGLContextClientVersion(2);
-        renderer = new MyRenderer(context);
+        renderer = MyRenderer.build(context);
         setRenderer(renderer);
+        // 渲染模式
         setRenderMode(GLSurfaceView.RENDERMODE_CONTINUOUSLY);
     }
 
