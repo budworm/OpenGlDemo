@@ -5,6 +5,8 @@ import android.opengl.GLES20;
 import android.opengl.GLUtils;
 import android.util.Log;
 
+import javax.microedition.khronos.opengles.GL10;
+
 /**
  * Created by user on 2018/4/2.
  */
@@ -34,6 +36,8 @@ public class TextureTool {
                 GLES20.glTexParameterf(GLES20.GL_TEXTURE_2D, GLES20.GL_TEXTURE_WRAP_T, GLES20.GL_CLAMP_TO_EDGE);
                 //根据以上指定的参数，生成一个2D纹理
                 GLUtils.texImage2D(GLES20.GL_TEXTURE_2D, 0, bitmap, 0);
+                //加载完成释放纹理
+                GLES20.glBindTexture(GL10.GL_TEXTURE_2D, 0);
             }
         } catch (Exception e) {
             Log.e("ES20_ERROR", "Create texture error .");
