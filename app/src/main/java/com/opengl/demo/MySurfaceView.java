@@ -20,12 +20,12 @@ public class MySurfaceView extends GLSurfaceView {
 
     public MySurfaceView(Context context) {
         super(context);
-        //initRenderer(context);
+        initRenderer(context);
     }
 
     public MySurfaceView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        //initRenderer(context);
+        initRenderer(context);
     }
 
 
